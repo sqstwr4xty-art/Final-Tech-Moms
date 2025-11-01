@@ -1,0 +1,479 @@
+/* General Styling */
+:root {
+    --color-white-sand: #FFFFFF;
+    --color-terracotta: #D56B5C;
+    /* Primary Accent */
+    --color-ocean-teal: #45878B;
+    /* Beachy Blue */
+    --color-natural-taupe: #B7926F;
+    /* Neutral for backgrounds/text */
+    --color-dark-text: #333333;
+    /* For general body text */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--color-dark-text);
+    background-color: var(--color-white-sand);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-terracotta);
+    /* Default for headings */
+    margin-bottom: 1em;
+}
+
+h1.logo-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    /* Larger for main logo */
+    color: var(--color-ocean-teal);
+    /* Main logo in blue */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-family: 'Pacifico', cursive;
+    /* Whimsical font */
+    font-size: 1.8em;
+    color: var(--color-natural-taupe);
+    margin-top: -10px;
+    /* Pull closer to logo */
+    margin-bottom: 2em;
+}
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: var(--color-ocean-teal);
+    /* Section titles in blue */
+}
+
+p {
+    margin-bottom: 1em;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-terracotta);
+}
+
+a:hover {
+    color: var(--color-ocean-teal);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-terracotta);
+    color: var(--color-white-sand);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn:hover {
+    background-color: var(--color-ocean-teal);
+    color: var(--color-white-sand);
+}
+
+/* Header & Hero Section */
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://via.placeholder.com/1600x800/D8C296/FFFFFF?text=Cafe+Scrub+Boho+Beach+Background') center/cover no-repeat;
+    /* Replace with a real background image */
+    color: var(--color-dark-text);
+    padding: 150px 0;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Slightly transparent white for content box */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero .intro-text {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    color: var(--color-dark-text);
+    font-weight: 400;
+}
+
+/* --- Palm Tree Shadow Background Styling (Adjusted for Full Coverage) --- */
+.palm-tree-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Ensures the background element covers the full height of the .hero parent */
+
+    /* Ensure your file name is correct here! */
+    background-image: url('wallpalm.png');
+
+    /* CHANGES: Use '100% 100%' or 'cover' */
+    /* 'cover' scales the image to cover the entire area, potentially cropping it */
+    background-size: cover;
+
+    /* Using 'no-repeat' is important to avoid tiling */
+    background-repeat: no-repeat;
+
+    /* Position the image to the center */
+    background-position: center center;
+
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure hero content is above the palm tree */
+.hero-content {
+    position: relative;
+    /* Essential for z-index to work against palm-tree-bg */
+    z-index: 1;
+    /* Make sure hero content appears above the palm tree */
+}
+
+/* Adjust the .hero background slightly if needed, to blend */
+.hero {
+    /* Keep your existing background, but you might adjust its opacity or pattern */
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://via.placeholder.com/1600x800/D8C296/FFFFFF?text=Cafe+Scrub+Boho+Beach+Background') center/cover no-repeat;
+    position: relative;
+    /* Important for positioning .palm-tree-bg inside it */
+    overflow: hidden;
+    /* Ensures palm tree doesn't spill out if background-size is too large */
+}
+
+/* Our Story Section */
+.story-bg {
+    background-color: var(--color-white-sand);
+    padding: 100px 0;
+}
+
+.story-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.story-image {
+    margin-top: 40px;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .container#our-story .container {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        text-align: left;
+    }
+
+    .story-content {
+        flex: 1;
+        margin: 0;
+    }
+
+    .story-image {
+        flex: 0 0 400px;
+        margin-top: 0;
+    }
+}
+
+
+/* What We Offer Section */
+.offer-bg {
+    background-color: #F8F8F8;
+    /* Light greyish-white for contrast */
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.offer-item {
+    background-color: var(--color-white-sand);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.offer-item:hover {
+    transform: translateY(-5px);
+}
+
+.offer-item img {
+    max-width: 100%;
+    height: 180px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* Ensures images cover the area without distortion */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.offer-item h3 {
+    color: var(--color-terracotta);
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Perfect For Section */
+.events-bg {
+    background-color: var(--color-ocean-teal);
+    /* Blue background for this section */
+    color: var(--color-white-sand);
+}
+
+.events-bg .section-title {
+    color: var(--color-white-sand);
+    /* White title on blue background */
+}
+
+.events-list {
+    max-width: 700px;
+    margin: 0 auto 3em auto;
+    text-align: left;
+}
+
+.events-list ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    font-size: 1.1em;
+}
+
+.events-list li {
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Slightly transparent white list items */
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: var(--color-white-sand);
+}
+
+.events-list li .icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.cta-events {
+    font-family: 'Pacifico', cursive;
+    /* Whimsical font for CTA */
+    font-size: 1.8em;
+    margin-top: 2em;
+    color: var(--color-white-sand);
+}
+
+/* Contact Section */
+.contact-bg {
+    background-color: var(--color-natural-taupe);
+    /* Taupe background for contact */
+    color: var(--color-white-sand);
+}
+
+.contact-bg .section-title {
+    color: var(--color-white-sand);
+    /* White title on taupe background */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto 3em auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white-sand);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-terracotta);
+    box-shadow: 0 0 0 2px rgba(213, 107, 92, 0.3);
+}
+
+.contact-form .btn {
+    align-self: flex-start;
+    /* Align button to the left */
+    margin-top: 10px;
+}
+
+.social-media {
+    margin-top: 30px;
+}
+
+.social-media p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: var(--color-white-sand);
+}
+
+.social-media a img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-media a img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--color-dark-text);
+    /* Darker footer for contrast */
+    color: rgba(255, 255, 255, 0.7);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Booking Pop-up */
+.booking-popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.booking-content {
+    background-color: var(--color-white-sand);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.booking-content h3 {
+    color: var(--color-terracotta);
+    font-size: 2em;
+}
+
+.booking-content p {
+    margin-bottom: 2em;
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: var(--color-dark-text);
+    cursor: pointer;
+}
+
+.close-popup:hover {
+    color: var(--color-terracotta);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 40px 20px;
+    }
+
+    h1.logo-main {
+        font-size: 2.5em;
+    }
+
+    .tagline {
+        font-size: 1.5em;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .offer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .events-list ul {
+        grid-template-columns: 1fr;
+    }
+
+    .story-content,
+    .story-image {
+        max-width: 100%;
+    }
+}
